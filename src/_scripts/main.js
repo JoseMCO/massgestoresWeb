@@ -31,6 +31,21 @@ $('#fullpage').fullpage({
   }
 });
 
+$("#sendMessage").on("click", function() {
+    $.ajax({
+        url: "//formspree.io/n3ggro@gmail.com", 
+        method: "POST",
+        data: {
+        	mensaje: $('input[name="mensaje"]').val(),
+        	email: $('input[name="email"]').val(),
+        	// telefono: $('input[name="telefono"]').val(),
+        	nombre: $('input[name="nombre"]').val()
+        },
+        dataType: "json"
+    });
+    return false;
+});
+
 $('.fixed-footer').on('click', '#scroll', function(){
 	if ($(this).hasClass('up')) {
 	  $.fn.fullpage.moveTo(1);

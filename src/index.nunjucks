@@ -37,21 +37,21 @@
   <div class="section section-4 contact-section">
     <div class="content">
       <h2>Contáctanos</h2>
-      <form action="https://formspree.io/n3ggro@gmail.com" method="POST">
+      <form>
         
         <label>Nombre</label>
-        <input name="name" placeholder="Nombre">
+        <input name="nombre" placeholder="Nombre">
 
         <label>Email</label>
-        <input name="_replyto" type="email" placeholder="nombre@email.cl">
+        <input name="email" type="email" placeholder="nombre@email.cl">
         {#
         <label>Teléfono</label>
-        <input name="phone" type="text" placeholder="+56 9 123 34 56">
+        <input name="telefono" type="text" placeholder="+56 9 123 34 56">
         #}
         <label>Mensaje</label>
-        <textarea name="message" placeholder="Mensaje..."></textarea>
+        <textarea name="mensaje" placeholder="Mensaje..."></textarea>
         
-        <input id="submit" name="submit" type="submit" value="Enviar">
+        <input id="sendMessage" name="submit" type="submit" value="Enviar">
     
       </form>
     </div>
