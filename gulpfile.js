@@ -43,6 +43,7 @@ gulp.task('default', ['clean'], function() {
 // Build production-ready code
 gulp.task('build', [
   'copy',
+  'icons',
   'imagemin',
   'nunjucks',
   'sass',
@@ -52,6 +53,7 @@ gulp.task('build', [
 // Server tasks with watch
 gulp.task('serve', [
   'imagemin',
+  'icons',
   'copy',
   'nunjucks',
   'sass',

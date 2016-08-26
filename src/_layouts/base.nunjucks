@@ -45,7 +45,15 @@
 
     <div class="fixed-footer">
       <div id="contact-us">
-        ¿Alguna duda?, <a href="tel:+5691231212">Llámanos: +569 123 12 12</a>
+        <a href="tel:+56999999999">
+          <i class="fa fa-phone-square" aria-hidden="true"></i>
+          <small>+569 9 9999999</small>
+        </a>
+
+        <a href="mailto:contacto@massgestores.cl">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <small>contacto@massgestores.cl</small>
+        </a> 
       </div>
       <div id="scroll">
         <a href="#"><span></span></a>
