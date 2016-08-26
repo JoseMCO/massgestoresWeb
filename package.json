@@ -12,6 +12,7 @@
     "del": "~2.2.0",
     "envify": "~3.4.0",
     "foldero": "~0.1.1",
+    "foundation-sites": "^6.2.3",
     "fullpage.js": "^2.8.4",
     "glob": "~6.0.4",
     "gulp": "~3.9.0",

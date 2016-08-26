@@ -5,71 +5,42 @@
 
 var $ = require('jquery');
 var Link = require('../_modules/link/link');
-var fullpage = require('fullPage.js');
+var fullpage = require('fullpage.js');
 
-$(document).ready(function() {
-	$('#fullpage').fullpage({
-		//Navigation
-		menu: '#menu',
-		lockAnchors: true,
-		navigation: true,
-		navigationPosition: 'right',
-		navigationTooltips: ['Inicio', 'Servicios', 'Nosotros', 'Contacto'],
-		showActiveTooltip: true,
-		// slidesNavigation: true,
-		// slidesNavPosition: 'bottom',
+var colors = ['','rgba(155, 153, 147 , 0.5)','rgba(191, 191, 191, 0.5)','rgba(155, 153, 147 , 0.5)','rgba(252, 129, 74, 0.5)'];
+$('#fullpage').fullpage({
+	scrollingSpeed: 1000,
+  onLeave: function(index, nextIndex, direction){
+    var leavingSection = $(this);
+    $('.section').css("background-color",colors[nextIndex]);
+    $('.section-'+nextIndex+' .content').hide();
+    $('.section-'+nextIndex+' .content').fadeIn(1500);
+    $('.section-'+index+' .content').fadeOut(300);
 
-		//Scrolling
-		css3: true,
-		scrollingSpeed: 700,
-		autoScrolling: true,
-		fitToSection: true,
-		fitToSectionDelay: 1000,
-		scrollBar: false,
-		easing: 'easeInOutCubic',
-		easingcss3: 'ease',
-		loopBottom: false,
-		loopTop: false,
-		loopHorizontal: true,
-		continuousVertical: false,
-		continuousHorizontal: false,
-		scrollHorizontally: false,
-		interlockedSlides: false,
-		resetSliders: false,
-		normalScrollElements: '#element1, .element2',
-		scrollOverflow: false,
-		scrollOverflowOptions: null,
-		touchSensitivity: 15,
-		normalScrollElementTouchThreshold: 5,
-		bigSectionsDestination: null,
 
-		//Accessibility
-		keyboardScrolling: true,
-		animateAnchor: true,
-		recordHistory: true,
+  	$('#mask').fadeOut(500, function(){
+	    if (nextIndex % 2) {
+	  		$('#mask').css('background-image', "url('https://template58793.motopreview.com/mt-demo/58700/58793/mt-content/uploads/2016/05/mt-0438-home-parallax01.jpg')");	
+	    }
+	  	else {
+	  		$('#mask').css('background-image', "url('https://template58793.motopreview.com/mt-demo/58700/58793/mt-content/uploads/2016/05/mt-0438-home-parallax02.jpg')");	
+	    }
+			$('#mask').fadeIn(600);
+	  });
 
-		//Design
-		controlArrows: true,
-		verticalCentered: true,
-		sectionsColor : ['#ccc', '#eee', '#ddd', '#bbb'],
-		paddingTop: '3em',
-		paddingBottom: '10px',
-		fixedElements: '#header, .footer',
-		responsiveWidth: 0,
-		responsiveHeight: 0,
+	  if(nextIndex == 4){
+	  	$('#scroll').hide();
+	  }
+	  else if (index == 4 && nextIndex==3) {
+	  	$('#scroll').show();
+	  }
+		
+    console.log(nextIndex);
+  }
+});
 
-		//Custom selectors
-		sectionSelector: '.section',
-		slideSelector: '.slide',
-
-		//events
-		onLeave: function(index, nextIndex, direction){},
-		afterLoad: function(anchorLink, index){},
-		afterRender: function(){},
-		afterResize: function(){},
-		afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
-		onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}
-	});
+$(document).on('click', '#scroll', function(){
+  $.fn.fullpage.moveSectionDown();
 });
 
 $(function() {
