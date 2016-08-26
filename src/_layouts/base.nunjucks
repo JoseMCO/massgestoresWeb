@@ -44,9 +44,13 @@
     {% block content %}{% endblock %}
 
     <div class="fixed-footer">
+      <div id="contact-us">
+        ¿Alguna duda?, <a href="tel:+5691231212">Llámanos: +569 123 12 12</a>
+      </div>
       <div id="scroll">
         <a href="#"><span></span></a>
       </div>
+
     </div>
 
     <script src="{{baseUrl}}scripts/main.js"></script>

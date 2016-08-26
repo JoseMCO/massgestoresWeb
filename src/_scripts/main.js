@@ -7,7 +7,7 @@ var $ = require('jquery');
 var Link = require('../_modules/link/link');
 var fullpage = require('fullpage.js');
 
-var colors = ['','rgba(155, 153, 147 , 0.5)','rgba(191, 191, 191, 0.5)','rgba(155, 153, 147 , 0.5)','rgba(252, 129, 74, 0.5)'];
+var colors = ['','rgba(62, 61, 59, 0.7)','rgba(146, 112, 96, 0.7)','rgba(148, 84, 56, 0.7)','rgba(146, 50, 8, 0.7)'];
 $('#fullpage').fullpage({
 	scrollingSpeed: 1000,
   onLeave: function(index, nextIndex, direction){
@@ -17,30 +17,30 @@ $('#fullpage').fullpage({
     $('.section-'+nextIndex+' .content').fadeIn(1500);
     $('.section-'+index+' .content').fadeOut(300);
 
-
   	$('#mask').fadeOut(500, function(){
-	    if (nextIndex % 2) {
-	  		$('#mask').css('background-image', "url('https://template58793.motopreview.com/mt-demo/58700/58793/mt-content/uploads/2016/05/mt-0438-home-parallax01.jpg')");	
-	    }
-	  	else {
-	  		$('#mask').css('background-image', "url('https://template58793.motopreview.com/mt-demo/58700/58793/mt-content/uploads/2016/05/mt-0438-home-parallax02.jpg')");	
-	    }
+  		$('#mask').css('background-image', "url('images/bg"+ nextIndex +".jpg')");	
+  		console.log($('#mask').css('background-image') );
 			$('#mask').fadeIn(600);
 	  });
 
 	  if(nextIndex == 4){
-	  	$('#scroll').hide();
+	  	$('#scroll').addClass('up');
 	  }
-	  else if (index == 4 && nextIndex==3) {
-	  	$('#scroll').show();
+	  else if (index == 4 && nextIndex < 4) {
+	  	$('#scroll').removeClass('up');
 	  }
 		
     console.log(nextIndex);
   }
 });
 
-$(document).on('click', '#scroll', function(){
-  $.fn.fullpage.moveSectionDown();
+$('.fixed-footer').on('click', '#scroll', function(){
+	if ($(this).hasClass('up')) {
+	  $.fn.fullpage.moveTo(1);
+	}
+	else {
+	  $.fn.fullpage.moveSectionDown();
+	}
 });
 
 $(function() {
