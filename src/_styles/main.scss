@@ -147,7 +147,7 @@ html, body {
     font-size: 1.2em;
     text-align: center;
     @include breakpoint(small down) { 
-      font-size: 1em;
+      font-size: 0.9em;
       .content {
         padding: 25px;   
       }
@@ -162,6 +162,10 @@ html, body {
     h2 {
       color: white;
       font-size: 1.9em;
+      @include breakpoint(small down) {
+        font-size: 1.3em;
+        margin-bottom: 5px;
+      } 
     }
     form {
       margin:0 auto;
@@ -173,6 +177,9 @@ html, body {
         margin-left:10px;
         text-align: left;
         color: white;
+        @include breakpoint(small down) { 
+          margin-top:10px;
+        }
       }
 
       input, textarea {
@@ -188,6 +195,10 @@ html, body {
         font-size:0.9em;
         color: white;
 
+        @include breakpoint(small down) { 
+          height:24px;
+          margin-top:3px;
+        }
       }
       ::-webkit-input-placeholder {
         color: #eee;
@@ -289,6 +300,7 @@ html, body {
     @include breakpoint(small down) { 
       margin: 25px 0;
       width: 300px;
+      font-size: 1.4em;
       @include absolute-center;
       small {
         display: none;
