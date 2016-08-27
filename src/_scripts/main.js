@@ -7,7 +7,15 @@ var $ = require('jquery');
 var Link = require('../_modules/link/link');
 var fullpage = require('fullpage.js');
 
-var colors = ['','rgba(62, 61, 59, 0.7)','rgba(146, 112, 96, 0.7)','rgba(148, 84, 56, 0.7)','rgba(62, 61, 59, 0.7)'];
+// var colors = ['','rgba(62, 61, 59, 0.7)','rgba(146, 112, 96, 0.7)','rgba(148, 84, 56, 0.7)','rgba(62, 61, 59, 0.7)'];
+// var images = ['',"images/bg1.jpg","images/bg2.jpg","images/bg3.jpg","images/bg4.jpg"];
+var colors = ['','rgba(62, 61, 59, 0.7)','rgba(62, 61, 59, 0.7)'];
+var images = ['',"images/bg1.jpg","images/bg4.jpg"];
+$(images).each(function(){
+    $('<img/>')[0].src = this;
+    // Alternatively you could use:
+    // (new Image()).src = this;
+});
 $('#fullpage').fullpage({
 	scrollingSpeed: 1000,
   onLeave: function(index, nextIndex, direction){
@@ -18,14 +26,14 @@ $('#fullpage').fullpage({
     $('.section-'+index+' .content').fadeOut(300);
 
   	$('#mask').fadeOut(500, function(){
-  		$('#mask').css('background-image', "url('images/bg"+ nextIndex +".jpg')");	
+  		$('#mask').css('background-image', "url('"+images[nextIndex]+"')");	
 			$('#mask').fadeIn(600);
 	  });
 
-	  if(nextIndex == 4){
+	  if(nextIndex == 2){
 	  	$('#scroll').addClass('up');
 	  }
-	  else if (index == 4 && nextIndex < 4) {
+	  else if (index == 2 && nextIndex < 2) {
 	  	$('#scroll').removeClass('up');
 	  }
   }
