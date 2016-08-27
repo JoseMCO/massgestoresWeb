@@ -33,15 +33,17 @@ $('#fullpage').fullpage({
 
 $("#sendMessage").on("click", function() {
     $.ajax({
-        url: "//formspree.io/n3ggro@gmail.com", 
+        url: "//formspree.io/contacto@massgestores.cl", 
         method: "POST",
         data: {
-        	mensaje: $('input[name="mensaje"]').val(),
+        	mensaje: $('textarea[name="mensaje"]').val(),
         	email: $('input[name="email"]').val(),
         	// telefono: $('input[name="telefono"]').val(),
         	nombre: $('input[name="nombre"]').val()
         },
         dataType: "json"
+    }).done(function(){
+    	$('textarea, input').val('');    	
     });
     return false;
 });
