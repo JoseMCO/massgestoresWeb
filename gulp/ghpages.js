@@ -1,17 +1,16 @@
 'use strict';
 
-var ghpages = require('gh-pages');
-var path = require('path');
+var ghPages = require('gulp-gh-pages');
 
 module.exports = function(gulp, plugins, args, config, taskTarget, browserSync) {
+	var gulp = require('gulp');
+ 
   // Deploy
-  gulp.task('ghpages', function() { 
-		return ghpages.publish(path.join(__dirname, 'build'), {
+	gulp.task('ghpages', function() {
+	  return gulp.src('./build/**/*')
+	    .pipe(ghPages({
 				branch: 'master',
-				message: 'Auto-generated commit'
-			},
-			function(err) {
-			}
-		);
-  });
+				message: "Auto-generated commit [timestamp]"
+	    }));
+	});
 };
