@@ -19,7 +19,6 @@ module.exports = function(gulp, plugins, args, config, taskTarget, browserSync) 
 
   // Icons
   gulp.task('icons', function() { 
-    var gutil = require('gulp-util');
     return gulp.src(dirs.nodeModules + '/font-awesome/fonts/**.*') 
       .pipe(gulp.dest(dest + '/fonts')); 
   });
