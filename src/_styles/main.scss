@@ -151,7 +151,7 @@ html, body {
     width: 20%;
     img {
       @include centerer(false, true);
-      height: 100px;
+      height: 130px;
       margin-left: 25px;
     }
 
@@ -223,6 +223,7 @@ html, body {
       border-radius:4px;
       -moz-border-radius:4px;
       -webkit-border-radius:4px;
+      cursor: pointer;
 
       &.service-2 {
         background-image: url('../images/estadosfinancieros.jpg');
