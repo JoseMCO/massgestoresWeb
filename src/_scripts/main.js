@@ -6,11 +6,12 @@
 var $ = require('jquery');
 var Link = require('../_modules/link/link');
 var fullpage = require('fullpage.js');
-
-// var colors = ['','rgba(62, 61, 59, 0.7)','rgba(146, 112, 96, 0.7)','rgba(148, 84, 56, 0.7)','rgba(62, 61, 59, 0.7)'];
-// var images = ['',"images/bg1.jpg","images/bg2.jpg","images/bg3.jpg","images/bg4.jpg"];
-var colors = ['','rgba(62, 61, 59, 0.7)','rgba(62, 61, 59, 0.7)'];
-var images = ['',"images/bg1.jpg","images/bg4.jpg"];
+var jqueryModal = require('jquery-modal');
+window.$ = $;
+var colors = ['','rgba(62, 61, 59, 0.7)','rgba(41, 40, 39, 0.7)','rgba(62, 61, 59, 0.7)'];
+var images = ['',"images/bg1.jpg","images/bg2.jpg","images/bg4.jpg"];
+// var colors = ['','rgba(62, 61, 59, 0.7)','rgba(62, 61, 59, 0.7)'];
+// var images = ['',"images/bg1.jpg","images/bg4.jpg"];
 $(images).each(function(){
     $('<img/>')[0].src = this;
     // Alternatively you could use:
@@ -27,13 +28,15 @@ $('#fullpage').fullpage({
 
   	$('#mask').fadeOut(500, function(){
   		$('#mask').css('background-image', "url('"+images[nextIndex]+"')");	
-			$('#mask').fadeIn(600);
+  		setTimeout(function(){
+				$('#mask').fadeIn(600);
+  		}, 200);
 	  });
 
-	  if(nextIndex == 2){
+	  if(nextIndex == 3){
 	  	$('#scroll').addClass('up');
 	  }
-	  else if (index == 2 && nextIndex < 2) {
+	  else if (index == 3 && nextIndex < 3) {
 	  	$('#scroll').removeClass('up');
 	  }
   }
@@ -65,7 +68,19 @@ $('.fixed-footer').on('click', '#scroll', function(){
 	}
 });
 
+$('div[data-modal]').on('click', function() {
+  $($(this).data('modal')).modal({
+    fadeDuration: 150,
+    closeText: 'Cerrar'
+  });
+  return false;
+});
+
+$('.modal').on('click', function(e) {
+  $.modal.close();
+});
+
 $(function() {
-  new Link(); // Activate Link modules logic
-  console.log('Welcome to Yeogurt!');
+  // new Link(); // Activate Link modules logic
+  // console.log('Welcome to Yeogurt!');
 });

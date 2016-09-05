@@ -30,6 +30,10 @@
       You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
     </p>
     <![endif]-->
+    <!-- css3-mediaqueries.js for IE less than 9 -->
+    <!--[if lt IE 9]>
+      <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
 
     <div id="mask"></div>
 
@@ -45,9 +49,9 @@
 
     <div class="fixed-footer">
       <div id="contact-us">
-        <a href="tel:+56999999999">
+        <a href="tel:+56978458384">
           <i class="fa fa-phone-square" aria-hidden="true"></i>
-          <small>+569 9 9999999</small>
+          <small>+569 7 8458384</small>
         </a>
 
         <a href="mailto:contacto@massgestores.cl">
