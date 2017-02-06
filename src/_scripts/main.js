@@ -8,7 +8,8 @@ var Link = require('../_modules/link/link');
 var fullpage = require('fullpage.js');
 var jqueryModal = require('jquery-modal');
 window.$ = $;
-var colors = ['','rgba(62, 61, 59, 0.7)','rgba(41, 40, 39, 0.7)','rgba(62, 61, 59, 0.7)'];
+// var colors = ['','rgba(62, 61, 59, 0.7)','rgba(41, 40, 39, 0.7)','rgba(62, 61, 59, 0.7)'];
+var colors = ['','rgba(62, 61, 59, 0.7)','rgba(70, 60, 50, 0.7)','rgba(62, 61, 59, 0.7)'];
 var images = ['',"images/bg1.jpg","images/bg2.jpg","images/bg4.jpg"];
 // var colors = ['','rgba(62, 61, 59, 0.7)','rgba(62, 61, 59, 0.7)'];
 // var images = ['',"images/bg1.jpg","images/bg4.jpg"];
@@ -73,6 +74,18 @@ $('div[data-modal]').on('click', function() {
     fadeDuration: 150,
     closeText: 'Cerrar'
   });
+  return false;
+});
+
+$('div[data-service]').on('click', function() {
+  var service = $(this).data('service')
+  if ($('.service-desc.show').size()) {
+    $('.service-desc.show').removeClass('show');
+    $(service).addClass('show');
+  }
+  else {
+    $(service).addClass('show');
+  }
   return false;
 });
 

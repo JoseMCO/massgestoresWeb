@@ -1,7 +1,7 @@
 // Normalize Styles
 @import 'node_modules/normalize.css/normalize';
 // @import 'node_modules/foundation-sites/scss/foundation';
-@import 'node_modules/fullpage.js/jquery.fullpage.scss';
+@import 'node_modules/fullpage.js/dist/jquery.fullpage.scss';
 @import 'node_modules/font-awesome/scss/font-awesome.scss';
 
 @import '_colors.scss';
@@ -212,19 +212,50 @@ html, body {
   }
 
   &.services-section {
+    padding-top: 50px;
+    @include smaller {
+      padding-top: 0px;
+    } 
+    
+    .content {
+      max-width: 95%;
+      height: 60%;
+      padding-top: 30px;
+      .left-content {
+        display: inline-block;
+        width: 40%;
+        @include smaller {
+          display: inline-block;
+          width: 100%;
+        } 
+      }
+      .right-content {
+        width: 60%;
+        float: right;
+        @include smaller {
+          display: none
+        } 
+      }
+    }
     .service {
-      width: 250px;
-      height: 180px;
-      margin: 20px;
+      width: 350px;
+      height: 100px;
+      margin: 10px;
       display: inline-flex;
-      background-image: url('../images/tributaria.jpg');
       background-position: center;
       background-size: cover;
       border-radius:4px;
       -moz-border-radius:4px;
       -webkit-border-radius:4px;
       cursor: pointer;
+      
+      @include smaller {
+        width: 300px;
+      } 
 
+      &.service-1 {
+        background-image: url('../images/tributaria.jpg');
+      }
       &.service-2 {
         background-image: url('../images/estadosfinancieros.jpg');
       }
@@ -233,6 +264,33 @@ html, body {
       }
       &.service-4 {
         background-image: url('../images/gestion.jpg');
+      }
+      &.service-desc {
+        width: 100%;
+        height: 460px;
+        border-radius: 2px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        background-color: rgba(41, 40, 39, 0.9);
+        border:1px solid #fff;
+        text-align: center;
+        display: none;
+        &.show {
+          display: block;
+        }
+        ul {
+          color: whitesmoke;
+          list-style: none;
+          padding-left: 0;
+          li {
+            margin-bottom: 5px;
+          }
+        }
+        h3 {
+          font-size: 1.5em;
+          font-weight: bold;
+          color: rgb(240, 130, 95);
+        }
       }
       
       .mask {
